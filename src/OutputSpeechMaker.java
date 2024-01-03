@@ -1,10 +1,10 @@
 import java.util.Map;
 import java.util.Set;
 
-public class Speaker {
+public class OutputSpeechMaker {
   private Set<WordDTO> set;
 
-  public Speaker(Set<WordDTO> set) {
+  public OutputSpeechMaker(Set<WordDTO> set) {
     this.set = set;
   }
 
