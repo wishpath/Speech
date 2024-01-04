@@ -1,3 +1,7 @@
+package helpers;
+
+import data.WordDTO;
+
 import java.util.HashSet;
 import java.util.Set;
 

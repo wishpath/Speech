@@ -1,4 +1,9 @@
-import java.util.Map;
+import data.WordDTO;
+import helpers.GraphMaker;
+import helpers.input.Input;
+import helpers.TextSplitter;
+import helpers.output.OutputSpeechMaker;
+
 import java.util.Set;
 
 public class Main {
@@ -8,12 +13,5 @@ public class Main {
     String[] words = new TextSplitter(text).getWords();
     Set<WordDTO> set = new GraphMaker(words).makeGraph();
     new OutputSpeechMaker(set).speak();
-  }
-
-  private static void printGraph(Set<WordDTO> set) {
-    for (WordDTO word : set) {
-      System.out.println(word.word + " " + word.links.size());
-      for (Map.Entry<WordDTO, Long> w : word.links.entrySet()) System.out.println("     " + w.getKey().word + " " + w.getValue());
-    }
   }
 }
