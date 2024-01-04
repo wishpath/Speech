@@ -1,3 +1,5 @@
+package helpers.input;
+
 public class Input {
   public String getText() {
     String text = "Artificial intelligence (AI) is the intelligence of machines or software, as opposed to the intelligence of humans or animals. It is a field of study in computer science which develops and studies intelligent machines. Such machines may be called AIs.\n" +
@@ -10,7 +12,7 @@ public class Input {
     return text.toLowerCase();
   }
 
-  public String getStartingWord() {
+  public String getStartingWordString() {
     return "ai";
   }
 }

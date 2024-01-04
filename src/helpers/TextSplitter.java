@@ -1,3 +1,5 @@
+package helpers;
+
 public class TextSplitter {
 
   private String text;
