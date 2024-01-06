@@ -24,6 +24,7 @@ TO DO LIST:
   implement finding synonims. example examples
   research: theres already entry of map<Object, long>, whe key was created using "new Object(x)". Now i create Object newObject = new Object(x). can i get existing value by calling map.get(newObject) with another but equal object? (Object class has equals() and hashCode())
   make readme nice!
+  maybe ignore some words like "the". its kind of the part of a next word. and theres no much patters what comes after "the". It could be figured out where to put articles, while processing the output. 
 
 SELF NOTES:
   do not add field "endOfSentence" or remove dot from the word. "example" and "example." are very different regarding what words follow after it.

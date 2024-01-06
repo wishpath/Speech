@@ -18,7 +18,7 @@ public class TextSplitter {
   private void processText(String rawText) {
     removeIgnoredSymbols();
     replaceReplacableSymbols();
-    //breakLineAfterDot();
+    makeSureThereAreSpacesAfterDots();
   }
 
   private void removeIgnoredSymbols() {
@@ -33,7 +33,7 @@ public class TextSplitter {
     }
   }
 
-  private void breakLineAfterDot() {
-    this.processedText = this.processedText.replaceAll("\\.", "\\.\\n");
+  private void makeSureThereAreSpacesAfterDots() {
+    this.processedText = this.processedText.replaceAll("\\.(\\S)", "\\. $1");
   }
 }
