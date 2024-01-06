@@ -5,20 +5,20 @@ import java.util.Map;
 import java.util.Objects;
 
 public class WordDTO {
-  public String word;
-  public Map<WordDTO, Long> links = new HashMap<>();
+  public String wordString;
+  public Map<WordDTO, Long> linkedTimes = new HashMap<>();
 
   public boolean used = true;
 
-  public WordDTO(String word) {
-    this.word = word;
+  public WordDTO(String wordString) {
+    this.wordString = wordString;
   }
 
-  public void incrementLinks(String word) {
-    Long linkedTimes = links.get(new WordDTO(word));
+  public void incrementLinks(String wordString) {
+    Long linkedTimes = this.linkedTimes.get(new WordDTO(wordString));
     if (linkedTimes == null) linkedTimes = 0L;
     linkedTimes++;
-    links.put(new WordDTO(word), linkedTimes);
+    this.linkedTimes.put(new WordDTO(wordString), linkedTimes);
   }
 
   @Override
@@ -26,11 +26,11 @@ public class WordDTO {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     WordDTO wordDTO = (WordDTO) o;
-    return Objects.equals(word, wordDTO.word);
+    return Objects.equals(wordString, wordDTO.wordString);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(word);
+    return Objects.hash(wordString);
   }
 }

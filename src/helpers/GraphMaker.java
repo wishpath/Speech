@@ -30,7 +30,7 @@ public class GraphMaker {
 
   private WordDTO ifPresentInSetThenReturnObjectFromSetOtherwiseMakeNewDTOAddToSetAndReturnNewDTO(String word) {
     for (WordDTO w : set) {
-      if (w.word.equals(word)) return w;
+      if (w.wordString.equals(word)) return w;
     }
     WordDTO newDTO = new WordDTO(word);
     set.add(newDTO);

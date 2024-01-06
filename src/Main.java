@@ -13,7 +13,7 @@ public class Main {
     String text = new Input().getText();
     String[] words = new TextSplitter(text).getWords();
     Set<WordDTO> set = new GraphMaker(words).makeGraph();
-    Printer.printSpecificWord(set, "ai");
+    Printer.printSpecificWord(set, "of");
     new OutputSpeechMaker(set).speak();
   }
 }
