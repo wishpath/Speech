@@ -12,6 +12,7 @@ v1.0:
     ![image](https://github.com/wishpath/Speech/assets/117854313/c463ac6b-d688-4498-ad00-224ffcc15a85)
 
 TO DO LIST:
+  fix this kind of word "ai.example"
   chatGPT uses very rare words. What if I implement weight for how specific/uncommon is a word?
   clean up words from symbols.
   implement finding synonims. example examples
