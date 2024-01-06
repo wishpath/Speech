@@ -17,6 +17,7 @@ TO DO LIST:
   further refactoring.
   clean up words from symbols.
   implement finding synonims. example examples
+  research: theres already entry of map<Object, long>, whe key was created using "new Object(x)". Now i create Object newObject = new Object(x). can i get existing value by calling map.get(newObject) with another but equal object? (Object class has equals() and hashCode())
   
   
 
