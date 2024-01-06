@@ -27,22 +27,22 @@ public class OutputSpeechMaker {
     }
   }
 
-  private WordDTO getWordObjectUsingWordString(String start) {
-    for (WordDTO w : set) {
-      if (w.wordString.equals(start)) {
-        return w;
+  private WordDTO getWordObjectUsingWordString(String wordString) {
+    for (WordDTO wordObject : set) {
+      if (wordObject.wordString.equals(wordString)) {
+        return wordObject;
       }
     }
     throw new RuntimeException("OutputSpeechMaker.getWordObjectUsingWordString: No such word Object");
   }
 
   private WordDTO getNext(WordDTO sentenceWord) {
-    getWordObjectUsingWordString(sentenceWord.wordString).used = false;
+    getWordObjectUsingWordString(sentenceWord.wordString).used = true;
     Map<WordDTO, Long> followingWordObjects = sentenceWord.linkedTimes;
     Long max = -1L;
     WordDTO next = null;
     for (Map.Entry<WordDTO, Long> e : followingWordObjects.entrySet()) {
-      if (e.getValue() > max && getWordObjectUsingWordString(e.getKey().wordString).used) {
+      if (e.getValue() > max && !getWordObjectUsingWordString(e.getKey().wordString).used) {
         next = e.getKey();
         max = e.getValue();
       }

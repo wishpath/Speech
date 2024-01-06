@@ -8,7 +8,7 @@ public class WordDTO {
   public String wordString;
   public Map<WordDTO, Long> linkedTimes = new HashMap<>();
 
-  public boolean used = true;
+  public boolean used = false;
 
   public WordDTO(String wordString) {
     this.wordString = wordString;
