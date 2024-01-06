@@ -11,14 +11,19 @@ v1.0:
   result:
     ![image](https://github.com/wishpath/Speech/assets/117854313/c463ac6b-d688-4498-ad00-224ffcc15a85)
 
+  v1.1:
+    input raw text is now cleaned before further process.
+    result:
+      ![image](https://github.com/wishpath/Speech/assets/117854313/b771a783-e329-4be3-8e5b-05d3aa2ca3aa)
+
+
 TO DO LIST:
   fix this kind of word "ai.example"
   chatGPT uses very rare words. What if I implement weight for how specific/uncommon is a word?
   clean up words from symbols.
   implement finding synonims. example examples
   research: theres already entry of map<Object, long>, whe key was created using "new Object(x)". Now i create Object newObject = new Object(x). can i get existing value by calling map.get(newObject) with another but equal object? (Object class has equals() and hashCode())
+  make readme nice!
 
 SELF NOTES:
   do not add field "endOfSentence" or remove dot from the word. "example" and "example." are very different regarding what words follow after it.
-
-
