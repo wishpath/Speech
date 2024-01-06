@@ -12,12 +12,12 @@ v1.0:
     ![image](https://github.com/wishpath/Speech/assets/117854313/c463ac6b-d688-4498-ad00-224ffcc15a85)
 
 TO DO LIST:
-  fix first word repeating itself.
   chatGPT uses very rare words. What if I implement weight for how specific/uncommon is a word?
-  further refactoring.
   clean up words from symbols.
   implement finding synonims. example examples
   research: theres already entry of map<Object, long>, whe key was created using "new Object(x)". Now i create Object newObject = new Object(x). can i get existing value by calling map.get(newObject) with another but equal object? (Object class has equals() and hashCode())
-  
-  
+
+SELF NOTES:
+  do not add field "endOfSentence" or remove dot from the word. "example" and "example." are very different regarding what words follow after it.
+
 
