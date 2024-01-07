@@ -33,13 +33,17 @@ public class OutputSpeechMaker {
         return wordObject;
       }
     }
+
     throw new RuntimeException("OutputSpeechMaker.getWordObjectUsingWordString: No such word Object");
   }
+
 
   private WordDTO getNext(WordDTO sentenceWord) {
     getWordObjectUsingWordString(sentenceWord.wordString).used = true;
     Map<WordDTO, Long> followingWordObjects = sentenceWord.linkedTimes;
     Long max = -1L;
+
+
     WordDTO next = null;
     for (Map.Entry<WordDTO, Long> e : followingWordObjects.entrySet()) {
       if (e.getValue() > max && !getWordObjectUsingWordString(e.getKey().wordString).used) {

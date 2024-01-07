@@ -13,8 +13,8 @@ public class Main {
     String text = new Input().getText();
     String[] words = new TextSplitter(text).getWords();
     Set<WordDTO> set = new GraphMaker(words).makeGraph();
-    //Printer.printSpecificWord(set, "of");
-    Printer.printGraph(set);
+    Printer.printSpecificWord(set, "of");
+    //Printer.printGraph(set);
     new OutputSpeechMaker(set).speak();
   }
 }
