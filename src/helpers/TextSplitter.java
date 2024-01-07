@@ -8,17 +8,19 @@ public class TextSplitter {
   public TextSplitter(String rawText) {
     this.rawText = rawText;
     this.processedText = rawText;
-    processText(rawText);
+    processText();
   }
 
   public String[] getWords() {
     return processedText.split(" ");
   }
 
-  private void processText(String rawText) {
+  private void processText() {
     removeIgnoredSymbols();
     replaceReplacableSymbols();
-    makeSureThereAreSpacesAfterDots();
+    fixSpacesAfterDots();
+    removeIgnoredWords();
+    removeMultipleSpaces();
   }
 
   private void removeIgnoredSymbols() {
@@ -33,7 +35,16 @@ public class TextSplitter {
     }
   }
 
-  private void makeSureThereAreSpacesAfterDots() {
+  private void fixSpacesAfterDots() {
     this.processedText = this.processedText.replaceAll("\\.(\\S)", "\\. $1");
+  }
+
+  private void removeIgnoredWords() {
+    for (String ignoredWord : Props.IGNORED_WORDS_RGX) {
+      this.processedText = this.processedText.replaceAll(ignoredWord, Props.IGNORED_WORDS_REPLACEMENT);
+    }
+  }
+  private void removeMultipleSpaces() {
+      this.processedText = this.processedText.replaceAll("\\s+", " ");
   }
 }
