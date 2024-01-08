@@ -1,4 +1,4 @@
-package helpers.input;
+package service.input;
 
 public class Input {
   public String getText() {

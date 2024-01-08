@@ -1,7 +1,7 @@
-package helpers.output;
+package service.output;
 
 import data.WordDTO;
-import helpers.input.Input;
+import service.input.Input;
 
 import java.util.Map;
 import java.util.Set;
@@ -16,15 +16,19 @@ public class OutputSpeechMaker {
   public void speak() {
     String startingWordString = new Input().getStartingWordString();
     WordDTO sentenceWordObject = getWordObjectUsingWordString(startingWordString);
-    System.out.println(sentenceWordObject.wordString + " " + sentenceWordObject.used);
 
 
     System.out.print("\ngenerated text:\n\"" + sentenceWordObject.wordString + " ");
     for (int j = 0; j < 112; j++) {
       sentenceWordObject = getWordObjectUsingWordString(sentenceWordObject.wordString);
+      markWordObjectAsUsed(sentenceWordObject);
       sentenceWordObject = getNext(sentenceWordObject);
       System.out.print(sentenceWordObject.wordString + " ");
     }
+  }
+
+  private void markWordObjectAsUsed(WordDTO sentenceWordObject) {
+    getWordObjectUsingWordString(sentenceWordObject.wordString).used = true;
   }
 
   private WordDTO getWordObjectUsingWordString(String wordString) {
@@ -33,13 +37,11 @@ public class OutputSpeechMaker {
         return wordObject;
       }
     }
-
     throw new RuntimeException("OutputSpeechMaker.getWordObjectUsingWordString: No such word Object");
   }
 
 
   private WordDTO getNext(WordDTO sentenceWord) {
-    getWordObjectUsingWordString(sentenceWord.wordString).used = true;
     Map<WordDTO, Long> followingWordObjects = sentenceWord.linkedTimes;
     Long max = -1L;
 

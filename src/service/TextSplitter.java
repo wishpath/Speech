@@ -1,4 +1,4 @@
-package helpers;
+package service;
 
 public class TextSplitter {
 
@@ -19,8 +19,8 @@ public class TextSplitter {
     removeIgnoredSymbols();
     replaceReplacableSymbols();
     fixSpacesAfterDots();
-    removeIgnoredWords();
-    removeMultipleSpaces();
+//    removeIgnoredWords();
+//    removeMultipleSpaces();
   }
 
   private void removeIgnoredSymbols() {
