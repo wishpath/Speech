@@ -1,5 +1,6 @@
 package service.output;
 
+import constants.Msg;
 import data.WordDTO;
 import service.input.Input;
 
@@ -37,7 +38,7 @@ public class OutputSpeechMaker {
         return wordObject;
       }
     }
-    throw new RuntimeException("OutputSpeechMaker.getWordObjectUsingWordString: No such word Object");
+    throw new RuntimeException(Msg.WORD_OBJECT_NOT_FOUND);
   }
 
 

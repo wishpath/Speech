@@ -1,5 +1,7 @@
 package service;
 
+import constants.Props;
+
 public class TextSplitter {
 
   private String rawText;
