@@ -3,7 +3,6 @@ import helpers.GraphMaker;
 import helpers.TextSplitter;
 import helpers.input.Input;
 import helpers.output.OutputSpeechMaker;
-import helpers.output.Printer;
 
 import java.util.Set;
 
@@ -14,7 +13,7 @@ public class Main {
     String[] words = new TextSplitter(text).getWords();
     Set<WordDTO> set = new GraphMaker(words).makeGraph();
     //Printer.printSpecificWord(set, "of");
-    Printer.printGraph(set);
+    //Printer.printGraph(set);
     new OutputSpeechMaker(set).speak();
   }
 }
