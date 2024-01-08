@@ -1,4 +1,4 @@
-package helpers.output;
+package service.output;
 
 import data.WordDTO;
 

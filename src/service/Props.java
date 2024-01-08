@@ -1,4 +1,4 @@
-package helpers;
+package service;
 
 public class Props {
   public static final String[] IGNORED_SYMBOLS_RGX = new String[]{",", "\\(", "\\)", "\\[\\d+\\]", "\\[.{1}\\]", ":", "\\n"};
