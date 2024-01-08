@@ -18,11 +18,10 @@ model: cutting text into word objects and forming a graph
 
 
 TO DO LIST:
-  fix this kind of word "ai.example"
+  go to v 1.2
   chatGPT uses very rare words. What if I implement weight for how specific/uncommon is a word?
-  clean up words from symbols.
   implement finding synonims. example examples
-  research: theres already entry of map<Object, long>, whe key was created using "new Object(x)". Now i create Object newObject = new Object(x). can i get existing value by calling map.get(newObject) with another but equal object? (Object class has equals() and hashCode())
+  another but equal object? (Object class has equals() and hashCode())
   make readme nice!
   maybe ignore some words like "the". its kind of the part of a next word. and theres no much patters what comes after "the". It could be figured out where to put articles, while processing the output. 
 
