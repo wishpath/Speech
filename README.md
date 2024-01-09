@@ -18,6 +18,7 @@ model: cutting text into word objects and forming a graph
 
 
 TO DO LIST:
+  remove last spaca
   cut output after last dot
   chatGPT uses very rare words. What if I implement weight for how specific/uncommon is a word?
   implement finding synonims. example examples

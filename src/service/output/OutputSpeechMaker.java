@@ -9,23 +9,23 @@ import java.util.Set;
 
 public class OutputSpeechMaker {
   private Set<WordDTO> set;
+  private String startingWordString = new Input().getStartingWordString();
 
   public OutputSpeechMaker(Set<WordDTO> set) {
     this.set = set;
   }
 
   public void speak() {
-    String startingWordString = new Input().getStartingWordString();
     WordDTO sentenceWordObject = getWordObjectUsingWordString(startingWordString);
-
-
-    System.out.print("\ngenerated text:\n\"" + sentenceWordObject.wordString + " ");
+    System.out.print(String.format(Msg.GENERATED_TEXT_INTRODUCTION_START, sentenceWordObject.wordString));
     for (int j = 0; j < 112; j++) {
       sentenceWordObject = getWordObjectUsingWordString(sentenceWordObject.wordString);
       markWordObjectAsUsed(sentenceWordObject);
       sentenceWordObject = getNext(sentenceWordObject);
+      if (sentenceWordObject == null) break;
       System.out.print(sentenceWordObject.wordString + " ");
     }
+    System.out.println("\"");
   }
 
   private void markWordObjectAsUsed(WordDTO sentenceWordObject) {

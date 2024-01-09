@@ -1,6 +1,6 @@
 package constants;
 
-public class Props {
+public class Prop {
   public static final String[] IGNORED_SYMBOLS_RGX = new String[]{",", "\\(", "\\)", "\\[\\d+\\]", "\\[.{1}\\]", ":", "\\n"};
   public static final String IGNORED_SYMBOLS_REPLACEMENT = "";
   public static final String[] REPLACABLE_SYMBOLS_RGX = new String[]{"-"};
