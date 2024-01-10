@@ -10,6 +10,7 @@ import java.util.Set;
 public class OutputSpeechMaker {
   private Set<WordDTO> set;
   private String startingWordString = new Input().getStartingWordString();
+  StringBuilder speech = new StringBuilder();
 
   public OutputSpeechMaker(Set<WordDTO> set) {
     this.set = set;
@@ -17,15 +18,17 @@ public class OutputSpeechMaker {
 
   public void speak() {
     WordDTO sentenceWordObject = getWordObjectUsingWordString(startingWordString);
-    System.out.print(String.format(Msg.GENERATED_TEXT_INTRODUCTION_START, sentenceWordObject.wordString));
+    speech.append(String.format(Msg.GENERATED_TEXT_INTRODUCTION_START, sentenceWordObject.wordString));
     for (int j = 0; j < 112; j++) {
       sentenceWordObject = getWordObjectUsingWordString(sentenceWordObject.wordString);
       markWordObjectAsUsed(sentenceWordObject);
       sentenceWordObject = getNext(sentenceWordObject);
       if (sentenceWordObject == null) break;
-      System.out.print(sentenceWordObject.wordString + " ");
+      speech.append(" ");
+      speech.append(sentenceWordObject.wordString);
     }
-    System.out.println("\"");
+    speech.append("\"");
+    System.out.println(speech.toString().substring(0, speech.lastIndexOf(".") + 1));
   }
 
   private void markWordObjectAsUsed(WordDTO sentenceWordObject) {

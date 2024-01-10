@@ -21,8 +21,8 @@ public class TextSplitter {
     removeIgnoredSymbols();
     replaceReplacableSymbols();
     putSpaceBeforeSymbolsAfterDot();
-//    removeIgnoredWords();
-//    removeMultipleSpaces();
+    removeIgnoredWords();
+    removeMultipleSpaces();
   }
 
   private void removeIgnoredSymbols() {
