@@ -18,7 +18,7 @@ model: cutting text into word objects and forming a graph
 
 
 TO DO LIST:
-  go to 1.2
+  "and go" might be a synonim to "go", and "the example" might be synonim to "example"
   chatGPT uses very rare words. What if I implement weight for how specific/uncommon is a word?
   implement finding synonims. example examples
   another but equal object? (Object class has equals() and hashCode())
