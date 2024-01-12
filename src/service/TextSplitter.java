@@ -2,10 +2,14 @@ package service;
 
 import constants.Prop;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TextSplitter {
 
   private String rawText;
   private String processedText;
+  private List<String> nonPlurals = new ArrayList<>(List.of("is", "as", "analysis", "chess", "was", "loss", "previous", "various"));
 
   public TextSplitter(String rawText) {
     this.rawText = rawText;
@@ -14,7 +18,24 @@ public class TextSplitter {
   }
 
   public String[] getWords() {
-    return processedText.split(" ");
+    String[] words = processedText.split(" ");
+    return removePlural(words);
+  }
+
+  private String[] removePlural(String[] words) {
+    for (String word : words) {
+      if (word.matches(".*s")) {
+        boolean skip = false;
+        for (String s : nonPlurals) {
+          if (s.equals(word)) skip = true;
+        }
+        if (skip) continue;
+        word = word.substring(0, word.length() - 1);
+        word.replaceAll("ie", "y");
+        System.out.println(word);
+      }
+    }
+    return words;
   }
 
   private void processText() {

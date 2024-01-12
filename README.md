@@ -18,6 +18,8 @@ model: cutting text into word objects and forming a graph
 
 
 TO DO LIST:
+continue removing plural
+if (s.equals(word)) skip = true; // optimise
   "and go" might be a synonim to "go", and "the example" might be synonim to "example"
   chatGPT uses very rare words. What if I implement weight for how specific/uncommon is a word?
   implement finding synonims. example examples
