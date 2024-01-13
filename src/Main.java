@@ -12,6 +12,7 @@ public class Main {
   public static void main(String[] args) {
     String text = new Input().getText();
     String[] words = new TextSplitter(text).getWords();
+    System.out.println(words[6]);
     Set<WordDTO> set = new GraphMaker(words).makeGraph();
     Printer.printSpecificWord(set, "companies");
     //Printer.printGraph(set);
