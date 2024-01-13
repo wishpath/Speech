@@ -1,41 +1,16 @@
 package service;
 
-import constants.Prop;
-
-import java.util.ArrayList;
-import java.util.List;
+import constants.Props;
 
 public class TextSplitter {
 
-  private String rawText;
-  private String processedText;
-  private List<String> nonPlurals = new ArrayList<>(List.of("is", "as", "analysis", "chess", "was", "loss", "previous", "various"));
+  private String rawTextInput;
+  private String processedTextOutput;
 
   public TextSplitter(String rawText) {
-    this.rawText = rawText;
-    this.processedText = rawText;
+    this.rawTextInput = rawText;
+    this.processedTextOutput = rawText;
     processText();
-  }
-
-  public String[] getWords() {
-    String[] words = processedText.split(" ");
-    return removePlural(words);
-  }
-
-  private String[] removePlural(String[] words) {
-    for (String word : words) {
-      if (word.matches(".*s")) {
-        boolean skip = false;
-        for (String s : nonPlurals) {
-          if (s.equals(word)) skip = true;
-        }
-        if (skip) continue;
-        word = word.substring(0, word.length() - 1);
-        word.replaceAll("ie", "y");
-        System.out.println(word);
-      }
-    }
-    return words;
   }
 
   private void processText() {
@@ -46,28 +21,49 @@ public class TextSplitter {
     removeMultipleSpaces();
   }
 
+  public String[] getWords() {
+    String[] words = processedTextOutput.split(" ");
+    System.out.println(words[6]);
+    return removePlural(words);
+  }
+
+  private String[] removePlural(String[] words) {
+    for (int i = 0; i < words.length; i++) {
+      if (words[i].matches(Props.PLURAL_PATTERN)) {
+        boolean skip = false;
+        for (String s : Props.NON_PLURALS) {
+          if (s.equals(words[i])) skip = true;
+        }
+        if (skip) continue;
+        words[i] = words[i].substring(0, words[i].length() - 1);
+        words[i] = words[i].replaceAll("ie$", "y");
+      }
+    }
+    return words;
+  }
+
   private void removeIgnoredSymbols() {
-    for (String ignoredSymbol : Prop.IGNORED_SYMBOLS_RGX) {
-      this.processedText = this.processedText.replaceAll(ignoredSymbol, Prop.IGNORED_SYMBOLS_REPLACEMENT);
+    for (String ignoredSymbol : Props.IGNORED_SYMBOLS_RGX) {
+      this.processedTextOutput = this.processedTextOutput.replaceAll(ignoredSymbol, Props.IGNORED_SYMBOLS_REPLACEMENT);
     }
   }
 
   private void replaceReplacableSymbols() {
-    for (String replacableSymbol: Prop.REPLACABLE_SYMBOLS_RGX) {
-      this.processedText = this.processedText.replaceAll(replacableSymbol, Prop.REPLACABLE_SYMBOLS_REPLACEMENT);
+    for (String replacableSymbol: Props.REPLACABLE_SYMBOLS_RGX) {
+      this.processedTextOutput = this.processedTextOutput.replaceAll(replacableSymbol, Props.REPLACABLE_SYMBOLS_REPLACEMENT);
     }
   }
 
   private void putSpaceBeforeSymbolsAfterDot() {
-    this.processedText = this.processedText.replaceAll("\\.(\\S)", "\\. $1");
+    this.processedTextOutput = this.processedTextOutput.replaceAll("\\.(\\S)", "\\. $1");
   }
 
   private void removeIgnoredWords() {
-    for (String ignoredWord : Prop.IGNORED_WORDS_RGX) {
-      this.processedText = this.processedText.replaceAll(ignoredWord, Prop.IGNORED_WORDS_REPLACEMENT);
+    for (String ignoredWord : Props.IGNORED_WORDS_RGX) {
+      this.processedTextOutput = this.processedTextOutput.replaceAll(ignoredWord, Props.IGNORED_WORDS_REPLACEMENT);
     }
   }
   private void removeMultipleSpaces() {
-      this.processedText = this.processedText.replaceAll("\\s+", " ");
+      this.processedTextOutput = this.processedTextOutput.replaceAll("\\s+", " ");
   }
 }
