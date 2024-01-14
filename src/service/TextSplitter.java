@@ -1,14 +1,12 @@
 package service;
 
 import constants.Props;
+import service.output.Printer;
 
 public class TextSplitter {
-
-  private String rawTextInput;
   private String processedTextOutput;
 
   public TextSplitter(String rawText) {
-    this.rawTextInput = rawText;
     this.processedTextOutput = rawText;
     processText();
   }
@@ -16,14 +14,24 @@ public class TextSplitter {
   private void processText() {
     removeIgnoredSymbols();
     replaceReplacableSymbols();
+    fakeDotsInWordsWithDots();
     putSpaceBeforeSymbolsAfterDot();
     removeIgnoredWords();
     removeMultipleSpaces();
   }
 
+  private void fakeDotsInWordsWithDots() {
+    for (String dottedWord: Props.WORDS_WITH_DOTS) {
+      String fakeDottedReplacement = dottedWord.replaceAll("\\.", Props.FAKE_DOT);
+      String regexToReplace = dottedWord.replaceAll("\\.", "\\\\.");
+
+      processedTextOutput = processedTextOutput.replaceAll(regexToReplace, fakeDottedReplacement);
+      Printer.printSpecial(processedTextOutput);
+    }
+  }
+
   public String[] getWords() {
     String[] words = processedTextOutput.split(" ");
-    System.out.println(words[6]);
     return removePlural(words);
   }
 

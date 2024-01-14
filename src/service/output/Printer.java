@@ -2,6 +2,8 @@ package service.output;
 
 import data.WordDTO;
 
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
 import java.util.Map;
 import java.util.Set;
 
@@ -20,5 +22,12 @@ public class Printer {
       for (Map.Entry<WordDTO, Long> w : word.linkedTimes.entrySet())
         System.out.println("     " + w.getKey().wordString + " " + w.getValue());
     }
+  }
+
+  public static void printSpecial(String s) {
+    String set = "UTF-8";
+    try {
+      new PrintStream(System.out, true, set).println(new String(s.getBytes(set) , set));
+    } catch (UnsupportedEncodingException e) {}
   }
 }
