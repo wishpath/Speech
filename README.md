@@ -18,7 +18,7 @@ model: cutting text into word objects and forming a graph
 
 
 TO DO LIST:
-remove irregular plurals (is - are, goose - geese)
+check processed text for plurals that are supposed to be fixed.
 if (s.equals(word)) skip = true; // optimise
   "and go" might be a synonim to "go", and "the example" might be synonim to "example"
   chatGPT uses very rare words. What if I implement weight for how specific/uncommon is a word?
