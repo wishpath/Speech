@@ -24,7 +24,7 @@ public class Printer {
     }
   }
 
-  public static void printSpecial(String s) {
+  public static void printSpecialCharacters(String s) {
     String set = "UTF-8";
     try {
       new PrintStream(System.out, true, set).println(new String(s.getBytes(set) , set));

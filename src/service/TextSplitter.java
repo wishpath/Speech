@@ -1,7 +1,9 @@
 package service;
 
 import constants.Props;
-import service.output.Printer;
+import data.DictionaryMaps;
+
+import java.util.Map;
 
 public class TextSplitter {
   private String processedTextOutput;
@@ -16,17 +18,25 @@ public class TextSplitter {
     replaceReplacableSymbols();
     fakeDotsInWordsWithDots();
     putSpaceBeforeSymbolsAfterDot();
+    replaceIrregularPlurals();
     removeIgnoredWords();
     removeMultipleSpaces();
   }
 
+  private void replaceIrregularPlurals() {
+    for (Map.Entry<String, String> e : DictionaryMaps.IRREGULAR_PLURALS.entrySet()) {
+      String replacedPluralRegex = e.getValue();
+      String replacement = e.getKey();
+      processedTextOutput = processedTextOutput.replaceAll(replacedPluralRegex, replacement);
+    }
+  }
+
   private void fakeDotsInWordsWithDots() {
-    for (String dottedWord: Props.WORDS_WITH_DOTS) {
+    for (String dottedWord : Props.WORDS_WITH_DOTS) {
       String fakeDottedReplacement = dottedWord.replaceAll("\\.", Props.FAKE_DOT);
       String regexToReplace = dottedWord.replaceAll("\\.", "\\\\.");
 
       processedTextOutput = processedTextOutput.replaceAll(regexToReplace, fakeDottedReplacement);
-      Printer.printSpecial(processedTextOutput);
     }
   }
 
@@ -57,7 +67,7 @@ public class TextSplitter {
   }
 
   private void replaceReplacableSymbols() {
-    for (String replacableSymbol: Props.REPLACABLE_SYMBOLS_RGX) {
+    for (String replacableSymbol : Props.REPLACABLE_SYMBOLS_RGX) {
       this.processedTextOutput = this.processedTextOutput.replaceAll(replacableSymbol, Props.REPLACABLE_SYMBOLS_REPLACEMENT);
     }
   }
@@ -71,7 +81,12 @@ public class TextSplitter {
       this.processedTextOutput = this.processedTextOutput.replaceAll(ignoredWord, Props.IGNORED_WORDS_REPLACEMENT);
     }
   }
+
   private void removeMultipleSpaces() {
-      this.processedTextOutput = this.processedTextOutput.replaceAll("\\s+", " ");
+    this.processedTextOutput = this.processedTextOutput.replaceAll("\\s+", " ");
+  }
+
+  public String getProcessedText() {
+    return this.processedTextOutput;
   }
 }
