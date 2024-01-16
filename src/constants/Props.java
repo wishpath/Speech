@@ -7,7 +7,7 @@ public class Props {
   public static final String REPLACABLE_SYMBOLS_REPLACEMENT = " ";
 
 
-  public static final String[] IGNORED_WORDS_RGX = new String[]{"\\bthe\\b", "\\ba\\b", "\\ban\\b"};
+  public static final String[] IGNORED_WORDS_RGX = new String[]{"\\bthe\\b", "\\ba\\b", "\\ban\\b", "\\band\\b"};
   public static final String[] NON_PLURALS = new String[]{"is", "as", "analysis", "chess", "was", "loss", "previous", "various", "linguistics", "this"};
   public static final String PLURAL_PATTERN = ".*s";
   public static final String IGNORED_WORDS_REPLACEMENT = "";
