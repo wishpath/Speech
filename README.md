@@ -11,21 +11,22 @@ model: cutting text into word objects and forming a graph
   result:
     ![image](https://github.com/wishpath/Speech/assets/117854313/c463ac6b-d688-4498-ad00-224ffcc15a85)
 
-  v1.1:
-    input raw text is now cleaned before further process.
-    result:
-      ![image](https://github.com/wishpath/Speech/assets/117854313/b771a783-e329-4be3-8e5b-05d3aa2ca3aa)
+v1.1:
+  input raw text is now cleaned before further process.
+  result:
+    ![image](https://github.com/wishpath/Speech/assets/117854313/b771a783-e329-4be3-8e5b-05d3aa2ca3aa)
 
-
+v1.2:
+  
 TO DO LIST:
-check processed text for plurals that are supposed to be fixed.
-if (s.equals(word)) skip = true; // optimise
-  "and go" might be a synonim to "go", and "the example" might be synonim to "example"
-  chatGPT uses very rare words. What if I implement weight for how specific/uncommon is a word?
+  solve "ais."
+  solve "is/was"
   implement finding synonims. example examples
-  another but equal object? (Object class has equals() and hashCode())
   make readme nice!
-  maybe ignore some words like "the". its kind of the part of a next word. and theres no much patters what comes after "the". It could be figured out where to put articles, while processing the output. 
+
+FOR THE NEXT VERSIONS
+  • Foresee a few words ahead, so the imediate next abstract word like "of" could be sort of ignored in comparison to some following word with more concrete meaning.
+  • Inplement english dictionary of fequency for implementing weight for how specific/uncommon is a word. more specific words will 
 
 SELF NOTES:
   do not add field "endOfSentence" or remove dot from the word. "example" and "example." are very different regarding what words follow after it.
