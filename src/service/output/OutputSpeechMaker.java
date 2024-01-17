@@ -27,7 +27,8 @@ public class OutputSpeechMaker {
       speech.append(" ");
       speech.append(sentenceWordObject.wordString);
     }
-    System.out.println(speech.substring(0, speech.lastIndexOf(".") + 1) + "\"");
+    //System.out.println(speech.substring(0, speech.lastIndexOf(".") + 1) + "\"");
+    System.out.println(speech.toString() + "\"");
   }
 
   private void markWordObjectAsUsed(WordDTO sentenceWordObject) {

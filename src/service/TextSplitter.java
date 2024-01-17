@@ -47,13 +47,14 @@ public class TextSplitter {
 
   private String[] removePlural(String[] words) {
     for (int i = 0; i < words.length; i++) {
-      if (words[i].matches(Props.PLURAL_PATTERN)) {
+      if (words[i].matches(Props.PLURAL_PATTERN_RGX)) {
         boolean skip = false;
         for (String s : Props.NON_PLURALS) {
           if (s.equals(words[i])) skip = true;
         }
         if (skip) continue;
-        words[i] = words[i].substring(0, words[i].length() - 1);
+        if (!words[i].matches(Props.ENDS_WITH_DOT_RGX)) words[i] = words[i].substring(0, words[i].length() - 1);
+        else words[i] = words[i].substring(0, words[i].length() - 2) + ".";
         words[i] = words[i].replaceAll("ie$", "y");
       }
     }

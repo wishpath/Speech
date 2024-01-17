@@ -19,9 +19,8 @@ v1.1:
 v1.2:
   
 TO DO LIST:
-  solve "ais."
   solve "is/was"
-  implement finding synonims. example examples
+  implement finding synonims. example examples. manage synonim list. first synonim ai = "artificial intelligence".
   make readme nice!
 
 FOR THE NEXT VERSIONS
