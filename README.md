@@ -19,8 +19,8 @@ v1.1:
 v1.2:
   
 TO DO LIST:
-  solve "is/was"
-  implement finding synonims. example examples. manage synonim list. first synonim ai = "artificial intelligence".
+  Continue working on SimilarWords class. Add pairs of synonyms from txt. put this class to use
+  think of a solution for phrase vs word. exmaple: ai - word. artificial intelligence - phrase.
   make readme nice!
 
 FOR THE NEXT VERSIONS
