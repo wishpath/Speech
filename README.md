@@ -19,13 +19,14 @@ v1.1:
 v1.2:
   
 TO DO LIST:
-  Continue working on SimilarWords class. Add pairs of synonyms from txt. put this class to use
-  think of a solution for phrase vs word. exmaple: ai - word. artificial intelligence - phrase.
+  Continue working on SimilarWords class. put this class to use
+  think of a solution for phrase vs word. example: ai - word. artificial intelligence - phrase.
   make readme nice!
 
 FOR THE NEXT VERSIONS
-  • Foresee a few words ahead, so the imediate next abstract word like "of" could be sort of ignored in comparison to some following word with more concrete meaning.
-  • Inplement english dictionary of fequency for implementing weight for how specific/uncommon is a word. more specific words will 
+  • Foresee a few words ahead, so the immediate next abstract word like "of" could be sort of ignored in comparison to some following word with more concrete meaning.
+  • Implement english dictionary of frequency for implementing weight for how specific/uncommon is a word. more specific words will
+  • Decide synonyms depending on context.
 
 SELF NOTES:
   do not add field "endOfSentence" or remove dot from the word. "example" and "example." are very different regarding what words follow after it.
