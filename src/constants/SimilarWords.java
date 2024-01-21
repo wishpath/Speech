@@ -17,7 +17,6 @@ public class SimilarWords {
     SYNONYMS_ONE_WORD.put("technology", List.of("tech"));
     SYNONYMS_ONE_WORD.put("use", List.of("utilize"));
     SYNONYMS_ONE_WORD.put("sophisticated", List.of("advanced"));
-    SYNONYMS_ONE_WORD.put("chess game", List.of("chess"));
     SYNONYMS_ONE_WORD.put("software", List.of("program"));
     SYNONYMS_ONE_WORD.put("field of study", List.of("discipline"));
     SYNONYMS_ONE_WORD.put("understanding", List.of("comprehension"));
