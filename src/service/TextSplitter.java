@@ -1,7 +1,7 @@
 package service;
 
 import constants.Props;
-import data.DictionaryMaps;
+import constants.SimilarWords;
 
 import java.util.Map;
 
@@ -24,7 +24,7 @@ public class TextSplitter {
   }
 
   private void replaceIrregularPlurals() {
-    for (Map.Entry<String, String> e : DictionaryMaps.IRREGULAR_PLURALS.entrySet()) {
+    for (Map.Entry<String, String> e : SimilarWords.IRREGULAR_PLURALS.entrySet()) {
       String replacedPluralRegex = e.getValue();
       String replacement = e.getKey();
       processedTextOutput = processedTextOutput.replaceAll(replacedPluralRegex, replacement);

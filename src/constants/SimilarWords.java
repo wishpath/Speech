@@ -5,6 +5,10 @@ import java.util.List;
 import java.util.Map;
 
 public class SimilarWords {
+  public static final Map<String, String> IRREGULAR_PLURALS = new HashMap<>();
+  static {
+    IRREGULAR_PLURALS.put("is", "\\bare\\b");
+  }
   public static final Map<String, List<String>> irregularTenses = new HashMap<>();
   public static final Map<String, List<String>> SYNONYMS_MULTIPLE_WORDS = new HashMap<>(); //this is singular not plural //present simple
   public static final Map<String, List<String>> SYNONYMS_ONE_WORD = new HashMap<>(); //this is singular not plural //present simple
