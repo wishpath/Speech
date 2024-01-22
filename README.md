@@ -19,6 +19,7 @@ v1.1:
 v1.2:
   
 TO DO LIST:
+  refactor SimilarWords 
   Words replacer - implement synonyms better
   if verb is lacking, give verbs a higher score.
   think of a solution for phrase vs word. example: ai - word. artificial intelligence - phrase.
